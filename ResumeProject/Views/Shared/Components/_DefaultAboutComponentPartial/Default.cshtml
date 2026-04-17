@@ -1,0 +1,26 @@
+﻿@model List<ResumeProject.Entities.About>
+<section id="about">
+	<div class="container">
+		<div class="section-title h2 text-center mb-8">
+			<h2 class="mb-0">Hakkımda</h2>
+			<span class="title-letter">H</span>
+		</div>
+		<div class="row">
+			<div class="col-md-6 col-lg-4 d-none d-lg-block">
+				<img class="img-fluid w-100 rounded" src="/templates/demo/images/a.jpg" alt="">
+			</div>
+			@foreach (var item in  Model)
+			{
+				<div class="col-lg-8">
+					<h3>@item.NameSurname</h3>
+					<p class="lead">@item.Title</p>
+					<p class="mb-5">@item.Description</p>
+
+					<a href="/files/ZÜLEYHA _EKER_CV.pdf" download="ZÜLEYHA _EKER_CV.pdf" class="btn btn-primary">CV'mi İndirin</a>
+					<a href="#contact" class="btn btn-light scrollto">Bana Yazın</a>
+				</div>
+			}
+			
+		</div>
+	</div>
+</section>

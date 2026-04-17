@@ -1,0 +1,32 @@
+﻿@model List<ResumeProject.Entities.Skill>
+
+<section id="skill" class="bg-light">
+	<div class="container">
+		<div class="row mb-8">
+			<div class="col-lg-10 col-xl-8 mx-lg-auto text-center">
+				<div class="section-title h2 mb-3">
+					<h2 class="mb-0">Yeteneklerim & Teknolojiler</h2>
+					<span class="title-letter">Y</span>
+				</div>
+				<p>Temiz kod yazmaya, ölçeklenebilir yapılar kurmaya ve kullanıcı deneyimini ön planda tutmaya önem veriyorum. Her projede teknik yetkinliği sadelikle buluşturmayı hedefliyorum.</p>
+			</div>
+		</div>
+		<div class="row">
+
+			@foreach (var item in Model)
+			{
+				<div class="col-md-6 mb-4 mb-md-0">
+					<p class="h6 mb-1">@item.SkillName</p>
+					<div class="progress mb-6 rounded-0" style="height:5px">
+						<div class="progress-bar" role="progressbar" style="width: @item.SkillValue%" aria-valuenow="@item.SkillValue" aria-valuemin="0" aria-valuemax="100"></div>
+					</div>
+
+				</div>
+			}
+			
+			
+	
+			
+		</div>
+	</div>
+</section>
