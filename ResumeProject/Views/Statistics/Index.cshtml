@@ -1,4 +1,4 @@
-﻿
+﻿@* 
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/AdminLayout/Index.cshtml";
@@ -9,4 +9,88 @@
 <h2>Okunmamış Mesaj Sayısı : @ViewBag.v2</h2>
 <h2>Okunmuş Mesaj Sayısı : @ViewBag.v3</h2>
 <h2> @ViewBag.v4</h2>
+ *@
+@{
+    ViewData["Title"] = "İstatistikler";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
 
+<div class="p-10 space-y-8">
+
+    <h1 class="text-2xl font-semibold text-slate-700 dark:text-slate-200">İstatistikler</h1>
+
+    <!-- STAT CARDS -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
+
+        <!-- Toplam Mesaj -->
+        <div class="bg-white dark:bg-[#1c2427] p-6 rounded-xl shadow flex items-center justify-between">
+            <div>
+                <p class="text-sm text-slate-500 mb-1">Toplam Mesaj</p>
+                <h3 class="text-4xl font-bold text-slate-700 dark:text-white">@ViewBag.v1</h3>
+            </div>
+            <span class="material-symbols-outlined text-5xl text-blue-400">mail</span>
+        </div>
+
+        <!-- Okunmamış -->
+        <div class="bg-white dark:bg-[#1c2427] p-6 rounded-xl shadow flex items-center justify-between">
+            <div>
+                <p class="text-sm text-slate-500 mb-1">Okunmamış Mesaj</p>
+                <h3 class="text-4xl font-bold text-slate-700 dark:text-white">@ViewBag.v2</h3>
+            </div>
+            <span class="material-symbols-outlined text-5xl text-rose-400">mark_email_unread</span>
+        </div>
+
+        <!-- Okunmuş -->
+        <div class="bg-white dark:bg-[#1c2427] p-6 rounded-xl shadow flex items-center justify-between">
+            <div>
+                <p class="text-sm text-slate-500 mb-1">Okunmuş Mesaj</p>
+                <h3 class="text-4xl font-bold text-slate-700 dark:text-white">@ViewBag.v3</h3>
+            </div>
+            <span class="material-symbols-outlined text-5xl text-green-400">mark_email_read</span>
+        </div>
+
+        <!-- v4 -->
+@*         <div class="bg-white dark:bg-[#1c2427] p-6 rounded-xl shadow flex items-center justify-between">
+            <div>
+                <p class="text-sm text-slate-500 mb-1">Diğer</p>
+                <h3 class="text-4xl font-bold text-slate-700 dark:text-white">@ViewBag.v4</h3>
+            </div>
+            <span class="material-symbols-outlined text-5xl text-amber-400">info</span>
+        </div>
+ *@
+    </div>
+
+    <!-- PROGRESS BARS -->
+    <div class="bg-white dark:bg-[#1c2427] p-6 rounded-xl shadow space-y-5">
+        <h2 class="text-base font-semibold text-slate-700 dark:text-slate-200 mb-2">Mesaj Dağılımı</h2>
+
+        @{
+            int total = ViewBag.v1 != null && (int)ViewBag.v1 > 0 ? (int)ViewBag.v1 : 1;
+            int readPct = (int)Math.Round((double)(int)ViewBag.v3 / total * 100);
+            int unreadPct = (int)Math.Round((double)(int)ViewBag.v2 / total * 100);
+        }
+
+        <!-- Okunmuş -->
+        <div>
+            <div class="flex justify-between text-sm mb-1">
+                <span class="text-slate-500">Okunmuş</span>
+                <span class="font-medium text-green-500">%@readPct</span>
+            </div>
+            <div class="w-full bg-slate-100 dark:bg-[#283539] rounded-full h-2.5">
+                <div class="bg-green-400 h-2.5 rounded-full transition-all" style="width: @readPct%"></div>
+            </div>
+        </div>
+
+        <!-- Okunmamış -->
+        <div>
+            <div class="flex justify-between text-sm mb-1">
+                <span class="text-slate-500">Okunmamış</span>
+                <span class="font-medium text-rose-500">%@unreadPct</span>
+            </div>
+            <div class="w-full bg-slate-100 dark:bg-[#283539] rounded-full h-2.5">
+                <div class="bg-rose-400 h-2.5 rounded-full transition-all" style="width: @unreadPct%"></div>
+            </div>
+        </div>
+    </div>
+
+</div>

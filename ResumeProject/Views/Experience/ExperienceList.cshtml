@@ -4,19 +4,20 @@
     Layout = "~/Views/AdminLayout/Index.cshtml";
 }
 
-<div class="flex-1 overflow-y-auto p-8">
-    <div class="max-w-6xl mx-auto space-y-8">
+ <div class="flex-1 overflow-y-auto p-8"> 
+    <div class="max-w-9xl mx-auto space-y-8">
         <!-- Page Heading -->
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
                 <h3 class="text-4xl font-black tracking-tight">Deneyim Listesi</h3>
-                <p class="text-slate-750 dark:text-[#9db2b9] mt-3">Deneyim içerikleriniiz düzenleyebilir, yeni deneyim ekleyebilirsiniz.</p>
+                <p class="text-slate-750 dark:text-[#9db2b9] mt-3">Deneyim içeriklerinizi düzenleyebilir, yeni deneyim ekleyebilirsiniz.</p>
             </div>
             <a href="/Experience/CreateExperience/" class="flex items-center gap-2 px-5 py-2.5 bg-primary text-background-dark rounded-lg font-bold text-md hover:opacity-90 transition-opacity">
                 <span class="material-symbols-outlined text-[40px]">add</span>
                 Yeni Deneyim Girişi
             </a>
         </div>
+        <br />
         <!-- Projects Table Container -->
         <div class="bg-white dark:bg-[#111618] rounded-xl border border-slate-200 dark:border-[#3b4d54] overflow-hidden shadow-sm">
             <div class="overflow-x-auto">
@@ -38,10 +39,10 @@
                         {
                             <tr class="hover:bg-slate-50/50 dark:hover:bg-white/5 transition-colors group">
 
-                                <td class="px-6 py-5 font-semibold text-base">@item.ExperienceId</td>
-                                <td class="px-6 py-5 font-semibold text-base">@item.Title</td>
-                                <td class="px-6 py-5 font-semibold text-base">@item.WorkDate</td>
-                                <td class="px-6 py-5 font-semibold text-base">@item.Description</td>
+                                <td class="px-6 py-5 font-semibold text-[20px]">@item.ExperienceId</td>
+                                <td class="px-6 py-5 font-semibold text-[20px]">@item.Title</td>
+                                <td class="px-6 py-5 font-semibold text-[20px]">@item.WorkDate</td>
+                                <td class="px-6 py-5 font-semibold text-[20px]">@item.Description</td>
                                 <td class="px-6 py-5 text-right">
                                     <a href="/Experience/DeleteExperience/@item.ExperienceId" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-red-500 hover:bg-red-600 text-white rounded-lg font-medium text-sm-start transition-colors">
                                         <span class="material-symbols-outlined text-[16px]">delete</span>
@@ -70,5 +71,5 @@
             </div>
         </div>
     </div>
-</div>
+</div> 
 

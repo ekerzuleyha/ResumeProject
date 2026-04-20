@@ -1,20 +1,21 @@
-﻿@model List<ResumeProject.Entities.Portfolio>
+﻿@model List<ResumeProject.Entities.Service>
 @{
-    ViewData["Title"] = "PortfolioList";
+    ViewData["Title"] = "ServiceList";
     Layout = "~/Views/AdminLayout/Index.cshtml";
     int count = 0;
 }
 
 <div class="flex-1 overflow-y-auto p-8">
-
+    @*  <div class="max-w-6xl mx-auto space-y-8"> *@
+    <!-- Page Heading -->
     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-            <h3 class="text-4xl font-black tracking-tight">Proje Listesi</h3>
-            <p class="text-slate-750 dark:text-[#9db2b9] mt-3">Proje içeriklerinizi düzenleyebilirsiniz.</p>
+            <h3 class="text-4xl font-black tracking-tight">Hizmetler Listesi</h3>
+            <p class="text-slate-750 dark:text-[#9db2b9] mt-3">Hizmet içeriklerinizi düzenleyebilirsiniz.</p>
         </div>
-        <a href="/Portfolio/CreatePortfolio/" class="flex items-center gap-2 px-5 py-2.5 bg-primary text-background-dark rounded-lg font-bold text-md hover:opacity-90 transition-opacity">
+        <a href="/Service/CreateService/" class="flex items-center gap-2 px-5 py-2.5 bg-primary text-background-dark rounded-lg font-bold text-md hover:opacity-90 transition-opacity">
             <span class="material-symbols-outlined text-[40px]">add</span>
-            Yeni Proje Girişi
+            Yeni Hizmet Girişi
         </a>
 
     </div>
@@ -28,9 +29,9 @@
                 <thead>
                     <tr class="bg-slate-50 dark:bg-[#1c2427] border-b border-slate-200 dark:border-[#3b4d54]">
                         <th class="px-6 py-4 text-sm font-bold uppercase tracking-wider text-slate-500 dark:text-[#9db2b9]">#</th>
-                        <th class="px-6 py-4 text-sm font-bold uppercase tracking-wider text-slate-500 dark:text-[#9db2b9]">Başlık</th>
-                        <th class="px-6 py-4 text-sm font-bold uppercase tracking-wider text-slate-500 dark:text-[#9db2b9]">Resim</th>
-                        <th class="px-6 py-4 text-sm font-bold uppercase tracking-wider text-slate-500 dark:text-[#9db2b9]">Kategori</th>
+                        <th class="px-6 py-4 text-sm font-bold uppercase tracking-wider text-slate-500 dark:text-[#9db2b9]">Hizmet Adı</th>
+                        <th class="px-6 py-4 text-sm font-bold uppercase tracking-wider text-slate-500 dark:text-[#9db2b9]">Açıklama</th>
+                        <th class="px-6 py-4 text-sm font-bold uppercase tracking-wider text-slate-500 dark:text-[#9db2b9]">Ikon Url</th>
                         <th class="px-6 py-4 text-sm font-bold uppercase tracking-wider text-slate-500 dark:text-[#9db2b9] text-right">Sil</th>
                         <th class="px-6 py-4 text-sm font-bold uppercase tracking-wider text-slate-500 dark:text-[#9db2b9] text-right">Güncelle</th>
                     </tr>
@@ -40,23 +41,20 @@
                     @foreach (var item in Model)
                     {
                         count++;
-
                         <tr class="hover:bg-slate-50/50 dark:hover:bg-white/5 transition-colors group">
 
-                             @* <td class="px-6 py-5 font-semibold text-[20px]">@item.PortfolioId</td > *@
-                             <td class="px-6 py-5 font-semibold text-[20px]">@count</td> 
+                            <td class="px-6 py-5 font-semibold text-[20px]">@item.ServiceId</td>
                             <td class="px-6 py-5 font-semibold text-[20px]">@item.Title</td>
-                            <td class="px-6 py-5 font-semibold text-[20px]"> <img src="@item.ImageUrl" width="200px" height="200px" /> </td>
-                             <td class="px-6 py-5 font-semibold text-[20px]">@item.Category?.CategoryName</td>
-
+                            <td class="px-6 py-5 font-semibold text-[20px]">@item.Description</td>
+                            <td class="px-6 py-5 font-semibold text-[20px]">@item.IconUrl</td>     
                             <td class="px-6 py-5 text-right">
-                                <a href="/Portfolio/DeletePortfolio/@item.PortfolioId" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-red-500 hover:bg-red-600 text-white rounded-lg font-medium text-sm-start transition-colors">
+                                <a href="/Service/DeleteService/@item.ServiceId" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-red-500 hover:bg-red-600 text-white rounded-lg font-medium text-sm-start transition-colors">
                                     <span class="material-symbols-outlined text-[16px]">delete</span>
                                     Sil
                                 </a>
                             </td>
                             <td class="px-6 py-5 text-right">
-                                <a href="/Portfolio/UpdatePortfolio/@item.PortfolioId" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-green-500 hover:bg-green-600 text-white rounded-lg font-medium text-sm-start transition-colors">
+                                <a href="/Service/UpdateService/@item.ServiceId" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-green-500 hover:bg-green-600 text-white rounded-lg font-medium text-sm-start transition-colors">
                                     <span class="material-symbols-outlined text-[16px]">edit</span>
                                     Güncelle
                                 </a>
@@ -70,11 +68,6 @@
         </div>
 
     </div>
-
-
 </div>
-
-
-
 
 

@@ -1,0 +1,76 @@
+﻿@model List<ResumeProject.Entities.Contact>
+
+@{
+    ViewData["Title"] = "ContactList";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+
+<div class="flex-1 overflow-y-auto p-8">
+    @*  <div class="max-w-6xl mx-auto space-y-8"> *@
+    <!-- Page Heading -->
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+            <h3 class="text-4xl font-black tracking-tight">İletişim Bilgileri</h3>
+            <p class="text-slate-750 dark:text-[#9db2b9] mt-3">İletişim bilgilerinizi düzenleyebilirsiniz.</p>
+        </div>
+        <a href="/Contact/CreateContact/" class="flex items-center gap-2 px-5 py-2.5 bg-primary text-background-dark rounded-lg font-bold text-md hover:opacity-90 transition-opacity">
+            <span class="material-symbols-outlined text-[40px]">add</span>
+            Yeni İletişim Girişi
+        </a>
+
+    </div>
+
+    <br /><br />
+    <!-- Projects Table Container -->
+
+    <div class="bg-white dark:bg-[#111618] rounded-xl border border-slate-200 dark:border-[#3b4d54] overflow-hidden shadow-sm">
+        <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse">
+                <thead>
+                    <tr class="bg-slate-50 dark:bg-[#1c2427] border-b border-slate-200 dark:border-[#3b4d54]">
+                        <th class="px-6 py-4 text-sm font-bold uppercase tracking-wider text-slate-500 dark:text-[#9db2b9]">#</th>
+                        <th class="px-6 py-4 text-sm font-bold uppercase tracking-wider text-slate-500 dark:text-[#9db2b9]">Açıklama</th>
+                        <th class="px-6 py-4 text-sm font-bold uppercase tracking-wider text-slate-500 dark:text-[#9db2b9]">Telefon Numarası</th>
+                        <th class="px-6 py-4 text-sm font-bold uppercase tracking-wider text-slate-500 dark:text-[#9db2b9]">Adres</th>
+                        <th class="px-6 py-4 text-sm font-bold uppercase tracking-wider text-slate-500 dark:text-[#9db2b9]">Email</th>
+                        <th class="px-6 py-4 text-sm font-bold uppercase tracking-wider text-slate-500 dark:text-[#9db2b9] text-right">Sil</th>
+                        <th class="px-6 py-4 text-sm font-bold uppercase tracking-wider text-slate-500 dark:text-[#9db2b9] text-right">Güncelle</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-200 dark:divide-[#3b4d54]">
+                    <!-- Row 1 -->
+                    @foreach (var item in Model)
+                    {
+                        <tr class="hover:bg-slate-50/50 dark:hover:bg-white/5 transition-colors group">
+
+                            <td class="px-6 py-5 font-semibold text-[20px]">@item.ContactId</td>
+                            <td class="px-6 py-5 font-semibold text-[20px]">@item.Description</td>
+                            <td class="px-6 py-5 font-semibold text-[20px]">@item.PhoneNumber</td>
+                            <td class="px-6 py-5 font-semibold text-[20px]">@item.Address</td>
+                            <td class="px-6 py-5 font-semibold text-[20px]">@item.Email</td>
+
+                            <td class="px-6 py-5 text-right">
+                                <a href="/Contact/DeleteContact/@item.ContactId" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-red-500 hover:bg-red-600 text-white rounded-lg font-medium text-sm-start transition-colors">
+                                    <span class="material-symbols-outlined text-[16px]">delete</span>
+                                    Sil
+                                </a>
+                            </td>
+                            <td class="px-6 py-5 text-right">
+                                <a href="/Contact/UpdateContact/@item.ContactId" class="inline-flex items-center gap-1.5 px-3 py-1.5 bg-green-500 hover:bg-green-600 text-white rounded-lg font-medium text-sm-start transition-colors">
+                                    <span class="material-symbols-outlined text-[16px]">edit</span>
+                                    Güncelle
+                                </a>
+                            </td>
+                        </tr>
+                    }
+
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    </div>
+
+

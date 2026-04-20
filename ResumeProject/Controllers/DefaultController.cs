@@ -18,12 +18,13 @@ namespace ResumeProject.Controllers
         {
             return View();
         }
+        [HttpGet]
+        public IActionResult SendMessage() 
+        {
+            return View();
+        }
 
-        //[HttpGet]
-        //public IActionResult SendMessage() 
-        //{
-        //    return View(); 
-        //}
+      
 
         [HttpPost]
         public IActionResult SendMessage(Message message)
@@ -32,12 +33,8 @@ namespace ResumeProject.Controllers
             message.IsRead = false;
             _context.Messages.Add(message);
             _context.SaveChanges();
-
-            //return View("Index");
-            TempData["Success"] = "Mesajınız başarıyla gönderildi!";
-            return RedirectToAction("Index", "Default");
-            // return RedirectToAction("Index", "Default", null, "contact");
-            //return View();
+            return RedirectToAction("Index");
+      
         }
 
     }

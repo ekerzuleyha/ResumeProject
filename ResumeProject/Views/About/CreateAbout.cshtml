@@ -1,41 +1,19 @@
-﻿@model ResumeProject.Entities.Portfolio
+﻿@model ResumeProject.Entities.About
 @{
-    ViewData["Title"] = "CreatePortfolio";
+    ViewData["Title"] = "CreateAbout";
     Layout = "~/Views/AdminLayout/Index.cshtml";
 }
-
-<style>
-    .dark select {
-        background-color: #1c2427;
-        color: #ffffff;
-    }
-
-    select {
-        background-color: #ffffff;
-        color: #1e293b;
-    }
-
-    .dark select option {
-        background-color: #1c2427;
-        color: #ffffff;
-    }
-
-    select option {
-        background-color: #ffffff;
-        color: #1e293b;
-    }
-</style>
 
 <div class="flex-1 overflow-y-auto p-8">
     <div class="max-w-7xl mx-auto space-y-8">
         <!-- Page Heading -->
         <div class="flex items-center gap-4">
-            <a href="/Portfolio/PortfolioList/" class="flex items-center justify-center w-10 h-10 rounded-lg border border-slate-200 dark:border-[#3b4d54] hover:bg-slate-50 dark:hover:bg-[#1c2427] transition-colors">
+            <a href="/About/AboutList/" class="flex items-center justify-center w-10 h-10 rounded-lg border border-slate-200 dark:border-[#3b4d54] hover:bg-slate-50 dark:hover:bg-[#1c2427] transition-colors">
                 <span class="material-symbols-outlined text-[20px]">arrow_back</span>
             </a>
             <div>
-                <h3 class="text-3xl font-black tracking-tight">Yeni Proje Ekle</h3>
-                <p class="text-slate-500 dark:text-[#9db2b9] mt-1">Proje bilgilerinizi ekleyin</p>
+                <h3 class="text-3xl font-black tracking-tight">Yeni Hakkımda Ekle</h3>
+                <p class="text-slate-500 dark:text-[#9db2b9] mt-1">Hakkımda bilgilerinizi ekleyin</p>
             </div>
         </div>
 
@@ -47,16 +25,47 @@
                     <!-- name surname -->
                     <div>
                         <label for="title" class="block text-sm font-bold mb-2">
-                           Başlık
+                            İsim Soyisim
                             <span class="text-red-500">*</span>
                         </label>
                         <input type="text"
                              
-                               name="Title"
+                               name="NameSurname"
                                class="w-full px-4 py-3 rounded-lg border border-slate-200 dark:border-[#3b4d54] bg-white dark:bg-[#1c2427] focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
                              
                                required />
-                    </div>                  
+                    </div>
+
+                    <!-- unvan -->
+                    <div>
+                        <label for="workDate" class="block text-sm font-bold mb-2">
+                            Unvan
+                            <span class="text-red-500">*</span>
+                        </label>
+                        <input type="text"
+                               @* id="workDate" *@
+                               name="Title"
+                               class="w-full px-4 py-3 rounded-lg border border-slate-200 dark:border-[#3b4d54] bg-white dark:bg-[#1c2427] focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
+                            
+                               required />
+                    </div>
+
+                    <!-- Description -->
+                    <div>
+                        <label for="description" class="block text-sm font-bold mb-2">
+                            Açıklama
+                            <span class="text-red-500">*</span>
+                        </label>
+                        <textarea id="description"
+                                  name="Description"
+                                  rows="6"
+                                  class="w-full px-4 py-3 rounded-lg border border-slate-200 dark:border-[#3b4d54] bg-white dark:bg-[#1c2427] focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all resize-none"
+                                
+                                  required></textarea>
+                        <p class="text-xs text-slate-500 dark:text-[#9db2b9] mt-2">
+                            Hakkınızda detaylı bilgi verin
+                        </p>
+                    </div>
 
                     <!-- resim -->
                     <div>
@@ -70,16 +79,6 @@
                                required />
                     </div>
 
-                    <!-- kategori -->
-                    <div>
-                        <label  class="block text-sm font-bold mb-2">
-                           Kategori seçiniz
-                            <span class="text-red-500">*</span>
-                        </label>
-                      
-                        @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.v, new { @class = "form-control" })
-                    </div>
-
                     <!-- Form Actions -->
                     <div class="flex items-center gap-3 pt-4 border-t border-slate-200 dark:border-[#3b4d54]">
                         <button type="submit"
@@ -87,7 +86,7 @@
                             <span class="material-symbols-outlined text-[20px]">check</span>
                             Kaydet
                         </button>
-                        <a href="/Portfolio/PortfolioList/"
+                        <a href="/About/AboutList/"
                            class="flex items-center gap-2 px-6 py-3 bg-slate-100 dark:bg-[#1c2427] text-slate-700 dark:text-slate-300 rounded-lg font-bold text-sm hover:bg-slate-200 dark:hover:bg-[#283539] transition-colors">
                             <span class="material-symbols-outlined text-[20px]">close</span>
                             İptal

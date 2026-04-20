@@ -1,4 +1,13 @@
 ﻿@model List<ResumeProject.Entities.Testimonial>
+
+	<style>
+	.testimonial-avatar {
+		width: 100px;
+		height: 100px;
+		object-fit: cover; /* resmi kırpmadan tam doldurur */
+	}
+	</style>
+
 <section>
 	<div class="overlay">
 		<div class="overlay-inner bg-image-holder bg-cover @* bg-center *@">
@@ -21,7 +30,7 @@
 								<p class="mb-5">@item.CommentDetail </p>
 								<footer class="d-flex justify-content-center align-items-center w-lg-50 mx-auto text-left">
 									<div class="avatar">
-										<img src="@item.ImageUrl" alt="" class="avatar-img rounded-circle shadow-dark">
+										<img src="@item.ImageUrl" class="avatar-img rounded-circle shadow-dark testimonial-avatar" >
 									</div>
 									<div class="ml-5">
 										<h4 class="h6 mb-0">@item.NameSurname</h4>

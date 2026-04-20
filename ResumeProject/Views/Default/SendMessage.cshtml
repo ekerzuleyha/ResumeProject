@@ -1,0 +1,43 @@
+﻿
+<form class="mb-0" action="/Default/SendMessage/" method="post" autocomplete="off">
+    <div class="form-row">
+        <div class="form-process"></div>
+
+        <div class="col-12 col-md-6">
+            <div class="form-group error-text-white">
+                <input type="text" name="NameSurname" placeholder="Lütfen adınızı girin" class="form-control required">
+            </div>
+        </div>
+
+        <div class="col-12 col-md-6">
+            <div class="form-group error-text-white">
+                <input type="email" name="EmailAddress" placeholder="Lütfen email adresinizi girin." class="form-control required">
+            </div>
+        </div>
+
+        <div class="col-12">
+            <div class="form-group error-text-white">
+                <input type="text" name="Subject" placeholder="Konu" class="form-control">
+            </div>
+        </div>
+
+        <div class="col-12 mb-4">
+            <div class="form-group error-text-white">
+                <textarea name="MessageDetail" placeholder="Mesajınızı yazın." class="form-control required" rows="7"></textarea>
+            </div>
+        </div>
+
+        <div class="col-12 d-none">
+            <input type="text" id="cf-botcheck" name="cf-botcheck" value="" class="form-control" />
+        </div>
+
+        <div class="col-12 text-center">
+            <button class="btn btn-primary" type="submit">GÖNDER</button>
+        </div>
+    </div>
+</form>
+
+<div class="contact-form-result text-center"></div>
+</div>
+
+

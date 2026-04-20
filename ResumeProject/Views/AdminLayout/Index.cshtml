@@ -1,6 +1,10 @@
-﻿
+﻿@using ResumeProject.Context
+@inject ResumeDbContext _context
 @{
     Layout = null;
+
+    var controller = ViewContext.RouteData.Values["controller"]?.ToString();
+    int count = _context.Messages.Count(x => x.IsRead == false);
 }
 
 <!DOCTYPE html>
@@ -47,7 +51,7 @@
         }
     </style>
 </head>
-<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex overflow-hidden">
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex">
     <!-- Fixed Vertical Sidebar -->
     <aside class="w-64 flex-shrink-0 bg-white dark:bg-[#111618] border-r border-slate-200 dark:border-[#283539] flex flex-col h-screen">
         <div class="p-6 flex items-center gap-3">
@@ -55,72 +59,129 @@
                 JD
             </div>
             <div class="flex flex-col">
-                <h1 class="text-sm font-bold leading-tight">Senior .NET Dev</h1>
-                <p class="text-xs text-slate-500 dark:text-[#9db2b9]">Admin Portal</p>
+                <h1 class="text-[20px] font-bold leading-tight">Senior .NET Dev</h1>
+                <p class="text-sm text-slate-500 dark:text-[#9db2b9]">Admin Portal</p>
             </div>
         </div>
         <nav class="flex-1 px-4 py-2 space-y-1 overflow-y-auto">
-            <a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 dark:text-[#9db2b9] hover:bg-slate-100 dark:hover:bg-[#1c2427] transition-colors" href="#">
-                <span class="material-symbols-outlined text-[22px]">dashboard</span>
-                <span class="text-sm font-medium">Dashboard</span>
+            <a href="/Dashboard/Index/"
+
+                class="flex items-center gap-3 px-3 py-2 rounded-lg transition-colors @(controller == "#" ? "bg-primary/10 dark:bg-primary/20 text-primary" : "text-slate-600 dark:text-[#9db2b9] hover:bg-slate-100 dark:hover:bg-[#1c2427]")">
+
+                
+                <span class="material-symbols-outlined text-[30px]">dashboard</span>
+                <span class="text-[20px] font-medium">Dashboard</span>
             </a>
-            <a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 dark:text-[#9db2b9] hover:bg-slate-100 dark:hover:bg-[#1c2427] transition-colors" href="#">
-                <span class="material-symbols-outlined text-[22px]">person</span>
-                <span class="text-sm font-medium">About Me</span>
+
+            <a href="/About/AboutList/"
+               class="flex items-center gap-3 px-3 py-2 rounded-lg transition-colors @(controller == "About" ? "bg-primary/10 dark:bg-primary/20 text-primary" : "text-slate-600 dark:text-[#9db2b9] hover:bg-slate-100 dark:hover:bg-[#1c2427]")">
+
+            
+                <span class="material-symbols-outlined text-[30px]">person</span>
+                <span class="text-[20px] font-medium">Hakkımda</span>
             </a>
-            <a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 dark:text-[#9db2b9] hover:bg-slate-100 dark:hover:bg-[#1c2427] transition-colors" href="#">
+
+            <a href="/Skill/SkillList/"
+               class="flex items-center gap-3 px-3 py-2 rounded-lg transition-colors @(controller == "Skill" ? "bg-primary/10 dark:bg-primary/20 text-primary" : "text-slate-600 dark:text-[#9db2b9] hover:bg-slate-100 dark:hover:bg-[#1c2427]")">
+
+              
                 <span class="material-symbols-outlined text-[22px]">psychology</span>
-                <span class="text-sm font-medium">Skills</span>
+                <span class="text-[20px] font-medium">Yetenekler</span>
             </a>
-            <a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 dark:text-[#9db2b9] hover:bg-slate-100 dark:hover:bg-[#1c2427] transition-colors" href="#">
+
+            <a href="/Experience/ExperienceList/"
+               class="flex items-center gap-3 px-3 py-2 rounded-lg transition-colors @(controller == "Experience" ? "bg-primary/10 dark:bg-primary/20 text-primary" : "text-slate-600 dark:text-[#9db2b9] hover:bg-slate-100 dark:hover:bg-[#1c2427]")">
+
+             
                 <span class="material-symbols-outlined text-[22px]">work</span>
-                <span class="text-sm font-medium">Experience</span>
+                <span class="text-[20px] font-medium">Deneyimler</span>
             </a>
-            <a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/10 dark:bg-primary/20 text-primary transition-colors" href="#">
-                <span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1">folder</span>
-                <span class="text-sm font-bold">Projects</span>
+
+            <a href="/Portfolio/PortfolioList/" 
+
+                class="flex items-center gap-3 px-3 py-2 rounded-lg transition-colors @(controller == "Portfolio" ? "bg-primary/10 dark:bg-primary/20 text-primary" : "text-slate-600 dark:text-[#9db2b9] hover:bg-slate-100 dark:hover:bg-[#1c2427]")">
+
+                <span class="material-symbols-outlined text-[22px]">task</span>
+                <span class="text-[20px] font-medium">Projeler</span>
             </a>
-            <a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 dark:text-[#9db2b9] hover:bg-slate-100 dark:hover:bg-[#1c2427] transition-colors" href="#">
-                <span class="material-symbols-outlined text-[22px]">school</span>
-                <span class="text-sm font-medium">Education</span>
-            </a>
-            <a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 dark:text-[#9db2b9] hover:bg-slate-100 dark:hover:bg-[#1c2427] transition-colors" href="#">
+          
+            <a href="/Service/ServiceList/"
+               class="flex items-center gap-3 px-3 py-2 rounded-lg transition-colors @(controller == "Service" ? "bg-primary/10 dark:bg-primary/20 text-primary" : "text-slate-600 dark:text-[#9db2b9] hover:bg-slate-100 dark:hover:bg-[#1c2427]")">
+
+                
+                
                 <span class="material-symbols-outlined text-[22px]">verified</span>
-                <span class="text-sm font-medium">Certificates</span>
+                <span class="text-[20px] font-medium">Hizmetler</span>
             </a>
-            <a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 dark:text-[#9db2b9] hover:bg-slate-100 dark:hover:bg-[#1c2427] transition-colors" href="#">
-                <span class="material-symbols-outlined text-[22px]">description</span>
-                <span class="text-sm font-medium">Blog</span>
-            </a>
-            <a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 dark:text-[#9db2b9] hover:bg-slate-100 dark:hover:bg-[#1c2427] transition-colors" href="#">
+           
+            <a href="/Message/MessageList/" 
+                class="flex items-center gap-3 px-3 py-2 rounded-lg transition-colors @(controller == "Message" ? "bg-primary/10 dark:bg-primary/20 text-primary" : "text-slate-600 dark:text-[#9db2b9] hover:bg-slate-100 dark:hover:bg-[#1c2427]")">
+
+             
                 <span class="material-symbols-outlined text-[22px]">mail</span>
-                <span class="text-sm font-medium">Messages</span>
+                <span class="text-[20px] font-medium">Mesajlar</span>
             </a>
-            <a class="flex items-center gap-3 px-3 py-2 rounded-lg text-slate-600 dark:text-[#9db2b9] hover:bg-slate-100 dark:hover:bg-[#1c2427] transition-colors mt-auto" href="#">
-                <span class="material-symbols-outlined text-[22px]">settings</span>
-                <span class="text-sm font-medium">Settings</span>
+
+            <a href="/Statistics/Index/" 
+
+                class="flex items-center gap-3 px-3 py-2 rounded-lg transition-colors @(controller == "Statistics" ? "bg-primary/10 dark:bg-primary/20 text-primary" : "text-slate-600 dark:text-[#9db2b9] hover:bg-slate-100 dark:hover:bg-[#1c2427]")">
+
+            
+                <span class="material-symbols-outlined text-[22px]">bar_chart</span>
+                <span class="text-[20px] font-medium">İstatistikler</span>
+            </a>
+
+            <a href="/Testimonial/TestimonialList/" 
+
+                class="flex items-center gap-3 px-3 py-2 rounded-lg transition-colors @(controller == "Testimonial" ? "bg-primary/10 dark:bg-primary/20 text-primary" : "text-slate-600 dark:text-[#9db2b9] hover:bg-slate-100 dark:hover:bg-[#1c2427]")">
+
+                <span class="material-symbols-outlined text-[22px]">share_reviews</span>
+                <span class="text-[20px] font-medium">Referanslar</span>
+            </a>
+
+            <a href="/Contact/ContactList/" 
+
+                class="flex items-center gap-3 px-3 py-2 rounded-lg transition-colors @(controller == "Contact" ? "bg-primary/10 dark:bg-primary/20 text-primary" : "text-slate-600 dark:text-[#9db2b9] hover:bg-slate-100 dark:hover:bg-[#1c2427]")">
+
+                <span class="material-symbols-outlined text-[22px]">call</span>
+                <span class="text-[20px] font-medium">İletişim</span>
+            </a>
+
+            <a href="/Default/Index/"
+               class="flex items-center gap-3 px-3 py-2 rounded-lg transition-colors @(controller == "Contact" ? "bg-primary/10 dark:bg-primary/20 text-primary" : "text-slate-600 dark:text-[#9db2b9] hover:bg-slate-100 dark:hover:bg-[#1c2427]")">
+
+                <span class="material-symbols-outlined text-[22px]">web_traffic</span>
+                <span class="text-[20px] font-medium">Siteye Git</span>
             </a>
         </nav>
     </aside>
     <!-- Main Content Area -->
-    <main class="flex-1 flex flex-col min-w-0 bg-background-light dark:bg-background-dark overflow-hidden">
+    <main class="flex-1 flex flex-col min-w-0 bg-background-light dark:bg-background-dark overflow-y-auto">
         <!-- Top Navbar -->
-        <header class="h-16 flex items-center justify-between px-8 bg-white dark:bg-[#111618] border-b border-slate-200 dark:border-[#283539] z-10">
+        <header class="h-28 flex items-center justify-between px-8 bg-white dark:bg-[#111618] border-b border-slate-200 dark:border-[#283539] z-10">
             <div class="flex items-center gap-2">
                 <span class="material-symbols-outlined text-primary">terminal</span>
-                <h2 class="text-lg font-bold tracking-tight">Developer Admin Panel</h2>
+                <h2 class="text-[25px] font-bold tracking-tight">Developer Admin Panel</h2>
             </div>
             <div class="flex items-center gap-6">
-                <button class="relative p-2 text-slate-500 dark:text-[#9db2b9] hover:bg-slate-100 dark:hover:bg-[#283539] rounded-lg transition-colors">
-                    <span class="material-symbols-outlined">notifications</span>
-                    <span class="absolute top-2 right-2.5 w-2 h-2 bg-primary rounded-full border-2 border-white dark:border-[#111618]"></span>
-                </button>
+                 <button class="relative p-2 text-slate-500 dark:text-[#9db2b9] hover:bg-slate-100 dark:hover:bg-[#283539] rounded-lg transition-colors">
+                    <span class="material-symbols-outlined text-4xl">mail</span> 
+                    @if (count > 0)
+                    {
+                        <span style="position:absolute; top:-5px; right:-5px; background:red; color:white; font-size:12px; font-weight:bold; border-radius:50%; width:22px; height:22px; display:flex; align-items:center; justify-content:center; border:2px solid white;">
+                            @count
+                        </span>
+                    }
+
+               </button>
+
                 <div class="flex items-center gap-3 pl-4 border-l border-slate-200 dark:border-[#283539]">
                     <div class="text-right hidden sm:block">
-                        <p class="text-xs font-bold">John Doe</p>
-                        <p class="text-[10px] text-primary">Senior Developer</p>
+                        <p class="text-[20px] font-bold">Züleyha Eker</p>
+                        <p class="text-[20px] text-primary">Bilgisayar Mühendisi</p>
                     </div>
-                    <div class="w-10 h-10 rounded-full bg-slate-200 bg-cover bg-center" data-alt="Professional headshot of a male developer" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCHbt4yI-strfVEuX0x8SAH4oMcokffsW8B0GDt_2uhoIKCbC4WglxcrR5FQjO2PnwAfuwPggUnbOtOE0InF8n8RXTqEfAZuWn99dBP6YgZVVhsijmhWwR7oohVkQqUDZdj7HV1aa1Nq0JdwsTi1D6hqS082K1FZpbP-zq6SllmfeolrAhvelQwxQTnrbqcbIW0M0ymZ1S3SW1Y2CJ1fJt6EOTgWe4K0PmwPytTzn6ZDRj0MxX8GAF49bJlkCOI-OW55fJuGlhsTj8');"></div>
+                    <div class="w-10 h-10 rounded-full bg-slate-200 bg-cover bg-center" data-alt="Professional headshot of a male developer" style="background-image: url('/templates/demo/images/a.jpg');"></div>
+                    @* <div class="w-10 h-10 rounded-full bg-slate-200 bg-cover bg-center" data-alt="Professional headshot of a male developer" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCHbt4yI-strfVEuX0x8SAH4oMcokffsW8B0GDt_2uhoIKCbC4WglxcrR5FQjO2PnwAfuwPggUnbOtOE0InF8n8RXTqEfAZuWn99dBP6YgZVVhsijmhWwR7oohVkQqUDZdj7HV1aa1Nq0JdwsTi1D6hqS082K1FZpbP-zq6SllmfeolrAhvelQwxQTnrbqcbIW0M0ymZ1S3SW1Y2CJ1fJt6EOTgWe4K0PmwPytTzn6ZDRj0MxX8GAF49bJlkCOI-OW55fJuGlhsTj8');"></div> *@
                 </div>
             </div>
         </header>

@@ -54,7 +54,8 @@
 						</div>
 					</div>
 				</div>
-				 	@await Component.InvokeAsync("_DefaultMesssageComponentPartial") 
+				
+				@await Html.PartialAsync("/Views/Default/SendMessage.cshtml")
 			</div>
 		</div>
 	</div>
