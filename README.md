@@ -25,6 +25,8 @@ Ziyaretçiler; hakkımda, yetenekler, deneyimler, hizmetler ve projeler gibi tü
 
 # Ekran Görüntüleri
 
+<img width="1920" height="929" alt="Ekran Görüntüsü (122)" src="https://github.com/user-attachments/assets/fa312848-7fa1-4e42-b66b-6e2b1447f684" />
+
 <img width="1920" height="925" alt="Ekran Görüntüsü (112)" src="https://github.com/user-attachments/assets/d731ce13-dc61-4718-b1fa-e6f94d9533e5" />
 
 <img width="1920" height="925" alt="Ekran Görüntüsü (113)" src="https://github.com/user-attachments/assets/08fe80a0-5371-4c33-a20e-9cff6e7efc67" />
@@ -44,8 +46,6 @@ Ziyaretçiler; hakkımda, yetenekler, deneyimler, hizmetler ve projeler gibi tü
 <img width="1920" height="928" alt="Ekran Görüntüsü (120)" src="https://github.com/user-attachments/assets/e519e9eb-0849-4d27-9e48-6c3a441ee480" />
 
 <img width="1920" height="926" alt="Ekran Görüntüsü (121)" src="https://github.com/user-attachments/assets/2e9fa2d5-d269-46cb-bdab-e83733586929" />
-
-<img width="1920" height="929" alt="Ekran Görüntüsü (122)" src="https://github.com/user-attachments/assets/fa312848-7fa1-4e42-b66b-6e2b1447f684" />
 
 <img width="1920" height="886" alt="Ekran Görüntüsü (123)" src="https://github.com/user-attachments/assets/14565cc9-47a2-4553-9b70-63ecff16d9dd" />
 
